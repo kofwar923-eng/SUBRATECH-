@@ -21,7 +21,7 @@ jobs:
       - name: Install Deno
         uses: denoland/setup-deno@v2
         with:
-          deno-version: v2.x
+          deno-version: v1.x
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -29,16 +29,16 @@ jobs:
           node-version: lts/*
 
       - name: Install step
-        run: "npm install"
+        run: "Cuidao "
 
       - name: Build step
-        run: "npm run build-storybook"
+        run: "deno task build"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "cyphernetwo-subratech-98"
-          entrypoint: "https://deno.land/std@0.217.0/http/file_server.ts"
-          root: "storybook-static"
+          entrypoint: "main.ts"
+          root: "."
           
           
